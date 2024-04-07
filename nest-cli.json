@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/elearning/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/elearning/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/elearning",
+  "projects": {
+    "elearning": {
+      "type": "application",
+      "root": "apps/elearning",
+      "entryFile": "main",
+      "sourceRoot": "apps/elearning/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/elearning/tsconfig.app.json"
+      }
+    },
+    "course": {
+      "type": "application",
+      "root": "apps/course",
+      "entryFile": "main",
+      "sourceRoot": "apps/course/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/course/tsconfig.app.json"
+      }
+    },
+    "database": {
+      "type": "library",
+      "root": "libs/database",
+      "entryFile": "index",
+      "sourceRoot": "libs/database/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database/tsconfig.lib.json"
+      }
+    },
+    "user": {
+      "type": "application",
+      "root": "apps/user",
+      "entryFile": "main",
+      "sourceRoot": "apps/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/user/tsconfig.app.json"
+      }
+    },
+    "lessons": {
+      "type": "application",
+      "root": "apps/lessons",
+      "entryFile": "main",
+      "sourceRoot": "apps/lessons/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lessons/tsconfig.app.json"
+      }
+    },
+    "enrollment": {
+      "type": "application",
+      "root": "apps/enrollment",
+      "entryFile": "main",
+      "sourceRoot": "apps/enrollment/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/enrollment/tsconfig.app.json"
+      }
+    }
+  }
+}
