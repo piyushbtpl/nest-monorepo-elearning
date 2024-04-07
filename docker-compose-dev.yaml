@@ -27,6 +27,7 @@ services:
       - '3001:3000'
     depends_on:
       - mongodb
+      - user
     environment:
       MONGO_URL: mongodb://mongodb:27017/eLearning
 

@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { Inject, Injectable } from '@nestjs/common';
 import { Course } from 'apps/course/src/schemas/course.schema';
 import { User } from 'apps/user/src/schemas/user.schema';
 import { Model } from 'mongoose';
 import { LessonsDTO } from './dtos/lessons.dto';
 import { Lessons } from './schemas/lessons.schema';
+import { LESSONS_MODEL } from '@app/database/db.constant';
 
 @Injectable()
 export class LessonsService {
-  constructor(@InjectModel(Lessons.name) private lessonModel: Model<Lessons>) {}
+  constructor(@Inject(LESSONS_MODEL) private lessonModel: Model<Lessons>) {}
 
   async create(createDto: LessonsDTO): Promise<Lessons> {
     const created = new this.lessonModel(createDto);

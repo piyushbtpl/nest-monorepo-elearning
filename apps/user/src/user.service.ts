@@ -1,12 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { UserDTO } from './dtos/user.dto';
 import { User } from './schemas/user.schema';
+import { USER_MODEL } from '@app/database/db.constant';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
+  constructor(@Inject(USER_MODEL) private userModel: Model<User>) {}
 
   async create(createDto: UserDTO): Promise<User> {
     const created = new this.userModel(createDto);
